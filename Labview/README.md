@@ -44,6 +44,35 @@ On Windows, ensure you have NI-VISA installed (download from National Instrument
 python3 examples/measure.py
 ```
 
+## Plot Capacitance vs Temperature
+
+Uses **MultiPyVu** to read temperature from a Quantum Design PPMS/MPMS system and **QT-7600** for capacitance measurement.
+
+**Run on the MultiVu PC:**
+
+```bash
+# macOS
+python3 examples/plot_cvst.py --qt GPIB0::10::INSTR --samples 30 --interval 2 --out cvst.png
+
+# Windows
+python examples\plot_cvst.py --qt GPIB0::10::INSTR --samples 30 --interval 2 --out cvst.png
+```
+
+**Mock mode (no hardware):**
+
+```bash
+python3 examples/plot_cvst.py --mock-q --mock-qt --samples 20 --out cvst.png
+```
+
+**Options:**
+- `--qt`: VISA resource for QT-7600 (required unless `--mock-qt`)
+- `--samples`: Number of measurements (default: 20)
+- `--interval`: Seconds between samples (default: 1.0)
+- `--out`: Output PNG filename (default: cvst.png)
+- `--csv`: Optional CSV file to save raw T/C data
+- `--mock-q`: Simulate temperature (for testing without PPMS/MPMS)
+- `--mock-qt`: Simulate capacitance (for testing without QT-7600)
+
 ## API Overview
 
 ### Standard IEEE 488.2 Commands

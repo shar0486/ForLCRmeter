@@ -1,0 +1,25 @@
+# Configuration file for plot_cvst.py
+# Settings can be overridden by command-line arguments
+
+# Interval between measurements in seconds (default: 1.0)
+interval=2
+
+# Output plot filename (default: cvst.png)
+out=cvst.png
+
+# Output data filename in tab-delimited format with columns:
+# Time (s), Temperature (K), Field (Oe), Capacitance (F)
+# Leave blank to skip saving data
+data=measurement_data.txt
+
+# What to plot capacitance against: "temperature" or "field" (default: temperature)
+plot_vs=temperature
+
+# QT-7600 VISA address (default: GPIB0::10::INSTR)
+qt=GPIB0::10::INSTR
+
+# Run continuously until interrupted (True/False, default: True)
+continuous=True
+
+# Number of samples (only used if continuous=False, default: 20)
+samples=20
